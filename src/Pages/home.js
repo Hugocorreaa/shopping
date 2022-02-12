@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Paper, Grid, Typography, Button, List, ListItem, ListItemText, makeStyles } from '@material-ui/core/';
+import { Paper, Grid, Typography, Button, List, ListItem, ListItemText, makeStyles } from '@material-ui/core/';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -17,8 +17,8 @@ const HomePage = () => {
     const classes = useStyles();
 
     return(
-        <Container maxWidth="xl">
-            <Grid container spacing={3} className={classes.root}>
+
+        <Grid container spacing={3} className={classes.root}>
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>
                     <Typography variant='h5'>
@@ -112,9 +112,8 @@ const HomePage = () => {
                 </Paper>
                 </Grid>
             </Grid>
-            </Grid>
+        </Grid>
 
-      </Container>
     )
 }
 
