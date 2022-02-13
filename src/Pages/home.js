@@ -45,14 +45,6 @@ const HomePage = ({ products }) => {
                         </Card>
                     );
                 })}
-
-                <Card
-                    name="Arsenal 2020"
-                    price="99.00"
-                    image="./images/produtos/arsenal.jpg"
-                >
-                    Arsenal
-                </Card>
             </Grid>
         </Grid>
     );
