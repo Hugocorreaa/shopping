@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Card = ({name, price, image, children}) => {
-    const classes = useStyles();
+    const classes = useStyles(); 
 
     return (
         <Grid item xs={3}>

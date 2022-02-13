@@ -33,7 +33,7 @@ const HomePage = () => {
                         <Item name="Times Internacionais" details="4" />
                         <Item name="Times Históricos" details="5" />
                     </List>
-                </Paper>
+                </Paper> 
             </Grid>
             <Grid container xs={9} spacing={3} className={classes.root}>
                 <Card
