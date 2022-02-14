@@ -16,9 +16,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HomePage = ({ products }) => {
-    console.log(products);
-
     const classes = useStyles();
+
+    const categorys = products.map((category) => {
+        const container = {};
+        container["id"] = category.id_categorys;
+        container["name"] = category.name_categorys;
+        return container;
+    });
+
+    const category = categorys
+        .map(JSON.stringify)
+        .filter(function (item, index, arr) {
+            return arr.indexOf(item, index + 1) === -1;
+        })
+        .map(JSON.parse);
 
     return (
         <Grid container spacing={3} className={classes.root}>
@@ -26,9 +38,15 @@ const HomePage = ({ products }) => {
                 <Paper className={classes.paper}>
                     <Typography variant="h5">Categorias</Typography>
                     <List>
-                        <Item name="Times Nacionais" details="3" />
-                        <Item name="Times Internacionais" details="4" />
-                        <Item name="Times Históricos" details="5" />
+                        {category.map((category) => {
+                            return (
+                                <Item
+                                    key={category.id}
+                                    name={category.name}
+                                    //details="3"
+                                />
+                            );
+                        })}
                     </List>
                 </Paper>
             </Grid>
