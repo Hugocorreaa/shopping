@@ -1,11 +1,6 @@
 import React from "react";
-import {
-    Paper,
-    Grid,
-    Typography,
-    Button,
-    makeStyles,
-} from "@material-ui/core/";
+import { Paper, Grid, Typography, Button, makeStyles } from "@material-ui/core/";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -14,19 +9,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Card = ({name, price, image, children}) => {
-    const classes = useStyles(); 
+const Card = ({ name, price, image, children }) => {
+    const classes = useStyles();
 
     return (
         <Grid item xs={3}>
             <Paper className={classes.paper}>
                 <Grid container direction="column">
                     <Grid item>
-                        <img
-                            width="140px"
-                            src={image}
-                            alt={name}
-                        />
+                        <img width="140px" src={image} alt={name} />
                         <Typography variant="h6">{children}</Typography>
                         <Typography variant="subtitle1">R$ {price}</Typography>
                     </Grid>
