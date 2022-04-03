@@ -1,6 +1,7 @@
 import React from "react";
 import { Paper, Grid, Typography, Button, makeStyles } from "@material-ui/core/";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import cartAction from './store/actions/cart'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -10,6 +11,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Card = ({ name, price, image, children }) => {
+    const cart = useSelector(state => state.cart.value);
+    const dispatch = useDispatch();
     const classes = useStyles();
 
     return (
@@ -21,7 +24,9 @@ const Card = ({ name, price, image, children }) => {
                         <Typography variant="h6">{children}</Typography>
                         <Typography variant="subtitle1">R$ {price}</Typography>
                     </Grid>
-                    <Button variant="contained">Adicionar</Button>
+                    <Button variant="contained" onClick={()=>dispatch(cartAction.Add(cart))}>
+                        Adicionar
+                    </Button>
                 </Grid>
             </Paper>
         </Grid>
